@@ -1,0 +1,9 @@
+# a2a-sdk 1.x = A2A protocol v1.0 (same versions as mas-a2a-lab / mas-a2a-production)
+a2a-sdk==1.2.2
+httpx==0.28.1
+starlette==1.7.0
+sse-starlette==3.5.0
+uvicorn==0.54.0
+openai==3.26.1
+python-dotenv==1.2.4
+tzdata==2025.2

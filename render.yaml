@@ -1,0 +1,21 @@
+# Render Blueprint: New + -> Blueprint -> pick this repo (or create a Web Service by hand with the same settings).
+services:
+  - type: web
+    name: a2a-assistant-agent
+    runtime: python
+    rootDir: a2a-agent            # remove if a2a-agent is the repo root
+    buildCommand: pip install -r requirements.txt
+    startCommand: python server.py
+    healthCheckPath: /healthz
+    plan: free                    # free plan sleeps after 15 min idle; first call then takes ~30-60 s
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: LLM_BASE_URL
+        sync: false
+      - key: LLM_MODEL
+        value: gpt-oss-120b
+      - key: LLM_API_KEY
+        sync: false
+      - key: A2A_API_KEY
+        generateValue: true       # Render generates a random key; copy it from the dashboard
